@@ -1,3 +1,11 @@
+/*
+ * @lc app=leetcode.cn id=707 lang=cpp
+ *
+ * [707] 设计链表
+ */
+
+// @lc code=start
+
 struct Node
 {
     int value;
@@ -112,3 +120,4 @@ public:
  * obj->addAtIndex(index,val);
  * obj->deleteAtIndex(index);
  */
+// @lc code=end
