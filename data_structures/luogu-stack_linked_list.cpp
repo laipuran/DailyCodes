@@ -3,35 +3,60 @@
 #include <iostream>
 using namespace std;
 
-unsigned long long arrayStack[1000001];
+struct Node
+{
+    unsigned long long value;
+    // Be aware of the data type.
+    Node *next;
+    Node(unsigned long long val) : value(val), next(nullptr) {}
+    Node(unsigned long long val, Node *next) : value(val), next(next) {}
+};
+
 class Stack
 {
 private:
-    int index;
+    Node *dummy;
+    Node *top;
+    int capacity;
 
 public:
-    Stack() : index(-1) {}
-    void push(unsigned long long x)
+    Stack()
     {
-        index++;
-        arrayStack[index] = x;
+        capacity = 0;
+        dummy = new Node(0);
+        top = dummy;
+    }
+    void push(long long x)
+    {
+        Node *newNode = new Node(x, top);
+        top = newNode;
+        capacity++;
     }
     bool pop()
     {
-        if (index == -1)
+        if (top == dummy)
             return false;
-        index--;
+        auto del = top;
+        top = top->next;
+        delete del;
+        capacity--;
         return true;
     }
     const unsigned long long *query() const
     {
-        if (index == -1)
+        if (top == dummy)
             return nullptr;
-        return &arrayStack[index];
+        return &top->value;
     }
-    int size()
+    int size() const
     {
-        return index + 1;
+        return capacity;
+    }
+    ~Stack()
+    {
+        while (this->query())
+            pop();
+        delete dummy;
     }
 };
 
@@ -51,7 +76,7 @@ int main()
         {
             string operation;
             cin >> operation;
-            
+
             if (operation == "push")
             {
                 unsigned long long num;
