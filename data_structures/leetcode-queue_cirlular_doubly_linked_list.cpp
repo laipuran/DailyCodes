@@ -38,6 +38,7 @@ public:
 
     bool enQueue(int value)
     {
+        // Remember that the number comes from the tail.
         if (isFull())
             return false;
         tail->value = value;
@@ -47,6 +48,7 @@ public:
 
     bool deQueue()
     {
+        // And leaves at the head.
         if (isEmpty())
             return false;
         head = head->next;
