@@ -1,6 +1,4 @@
-/*
- *	P1901 ∑¢…‰’æ
- */
+// Luogu P1901
 
 #include<iostream>
 #include<stack>

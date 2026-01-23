@@ -1,6 +1,4 @@
-/*
- *	P5788 µ¥µ÷Õ»
- */
+// Luogu P5788 å•è°ƒæ ˆ
 
 #include<iostream>
 #include<stack>
