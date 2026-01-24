@@ -1,3 +1,10 @@
+/*
+ * @lc app=leetcode.cn id=42 lang=cpp
+ *
+ * [42] 接雨水
+ */
+
+// @lc code=start
 #include<iostream>
 #include<cmath>
 #include<vector>
@@ -26,18 +33,5 @@ public:
         return sum;
     }
 };
+// @lc code=end
 
-int main() {
-    cin.sync_with_stdio(false);
-    cin.tie(0);
-    int n;
-    vector<int> heights;
-    cin >> n;
-    for (int i = 0; i < n; i++) {
-        int temp;
-        cin >> temp;
-        heights.push_back(temp);
-    }
-    Solution sln;
-    cout << sln.trap(heights) << "\n";
-}
