@@ -10,34 +10,40 @@ using namespace std;
 
 class Solution
 {
-    private:
-    vector<int> numbers;
+private:
     vector<vector<int>> result;
     vector<int> path;
 
-    bool has(int num){
-        for(int item:path)if(item==num)return true;
+    bool has(int num)
+    {
+        for (int item : path)
+            if (item == num)
+                return true;
         return false;
     }
 
-    void backtracking(){
-        if(path.size()==numbers.size()){
+    void backtracking(const vector<int> &numbers)
+    {
+        if (path.size() == numbers.size())
+        {
             result.push_back(path);
             return;
         }
 
-        for(int i=0;i<numbers.size();i++){
-            if(has(numbers[i]))continue;
+        for (int i = 0; i < numbers.size(); i++)
+        {
+            if (has(numbers[i]))
+                continue;
             path.push_back(numbers[i]);
-            backtracking();
+            backtracking(numbers);
             path.pop_back();
         }
     }
+
 public:
     vector<vector<int>> permute(vector<int> &nums)
     {
-        numbers=nums;
-        backtracking();
+        backtracking(nums);
         return result;
     }
 };

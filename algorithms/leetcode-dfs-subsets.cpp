@@ -11,11 +11,10 @@ using namespace std;
 class Solution
 {
 private:
-    vector<int> numbers;
     vector<vector<int>> result;
     vector<int> path;
 
-    void backtracking(int n, int k, int index)
+    void backtracking(const vector<int> &numbers, int k, int index)
     {
         if (path.size() == k)
         {
@@ -23,10 +22,10 @@ private:
             return;
         }
 
-        for (int i = index; i < n - (k - path.size()) + 1; i++)
+        for (int i = index; i < numbers.size() - (k - path.size()) + 1; i++)
         {
             path.push_back(numbers[i]);
-            backtracking(n, k, i + 1);
+            backtracking(numbers, k, i + 1);
             path.pop_back();
         }
     }
@@ -34,9 +33,8 @@ private:
 public:
     vector<vector<int>> subsets(vector<int> &nums)
     {
-        numbers = nums;
         for (int i = 0; i <= nums.size(); i++)
-            backtracking(nums.size(), i, 0);
+            backtracking(nums, i, 0);
         return result;
     }
 };
