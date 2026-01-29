@@ -12,6 +12,45 @@ using namespace std;
 
 class Solution
 {
+    vector<int> parent;
+
+    int find(int i)
+    {
+        if (parent[i] == i)
+            return i;
+        else
+            return parent[i] = find(parent[i]);
+    }
+
+public:
+    bool validPath(int n, vector<vector<int>> &edges, int source, int destination)
+    {
+        parent = vector<int>(n);
+        for (int i = 0; i < n; i++)
+            parent[i] = i;
+
+        for (auto &edge : edges)
+        {
+            int root1 = find(edge[0]), root2 = find(edge[1]);
+            if (root1 != root2)
+            {
+                parent[root2] = root1;
+            }
+        }
+        if (find(source) == find(destination))
+            return true;
+        return false;
+    }
+};
+// @lc code=end
+
+// My BFS solution:
+
+#include <vector>
+using namespace std;
+
+class Solution
+{
 private:
     bool result = false;
     vector<int> path;
@@ -52,4 +91,3 @@ public:
         return result;
     }
 };
-// @lc code=end
