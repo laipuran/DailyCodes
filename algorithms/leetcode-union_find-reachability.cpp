@@ -5,8 +5,48 @@
  */
 
 // @lc code=start
-// TODO: Add union find solution.
 
+// BFS solution.
+#include <vector>
+#include <queue>
+using namespace std;
+
+class Solution
+{
+public:
+    bool validPath(int n, vector<vector<int>> &edges, int source, int destination)
+    {
+        vector<vector<int>> adjList(n);
+        for (auto edge : edges)
+        {
+            adjList[edge[0]].push_back(edge[1]);
+            adjList[edge[1]].push_back(edge[0]);
+        }
+
+        vector<bool> visited(n, false);
+        queue<int> toVisit;
+        toVisit.push(source);
+        while (!toVisit.empty())
+        {
+            int current = toVisit.front();
+            if (current == destination)
+                return true;
+
+            toVisit.pop();
+            visited[current] = true;
+            for (int adj : adjList[current])
+                if (!visited[adj])
+                {
+                    toVisit.push(adj);
+                    visited[adj] = true;
+                }
+        }
+        return false;
+    }
+};
+// @lc code=end
+
+// Union find solution.
 #include <vector>
 using namespace std;
 
@@ -42,10 +82,8 @@ public:
         return false;
     }
 };
-// @lc code=end
 
-// My BFS solution:
-
+// DFS solution:
 #include <vector>
 using namespace std;
 
