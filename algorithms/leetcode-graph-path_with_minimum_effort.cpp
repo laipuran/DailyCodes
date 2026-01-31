@@ -132,6 +132,7 @@ public:
 
             for (auto neighbor : graph[index])
             {
+                // This is not using the max distance, it is calculating the distance it actually uses in this situation.
                 int cost = max(minEfforts[index], neighbor.first);
                 if (cost < minEfforts[neighbor.second])
                 {
