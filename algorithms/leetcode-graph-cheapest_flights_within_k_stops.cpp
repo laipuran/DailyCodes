@@ -9,51 +9,43 @@
 #include <queue>
 using namespace std;
 
+// Consider adding Bellman-Ford algorithm.
 class Solution
 {
 private:
-    typedef pair<int, int> distance;
-    typedef pair<distance, int> step;
+    using Node = tuple<int, int, int>;
 
 public:
     int findCheapestPrice(int n, vector<vector<int>> &flights, int src, int dst, int k)
     {
-        vector<vector<distance>> graph(n);
+        vector<vector<pair<int, int>>> graph(n);
         for (auto const &flight : flights)
-            graph[flight[0]].push_back({flight[2], flight[1]});
+            graph[flight[0]].push_back({flight[1], flight[2]});
 
-        priority_queue<step, vector<step>, greater<step>> priQueue;
-        vector<int> minCost(n, 0x3f3f3f3f);
-        minCost[src] = 0;
-        priQueue.push({{0, src}, 0});
-        vector<int> minSteps(n, 0x3f3f3f3f);
+        priority_queue<Node, vector<Node>, greater<Node>> priQueue;
+        vector<int> min_steps(n, k + 2);
+
+        priQueue.push({0, src, 0});
 
         while (!priQueue.empty())
         {
-            auto [distance, stepCount] = priQueue.top();
-            auto [cost, index] = distance;
+            auto [cost, index, stops] = priQueue.top();
             priQueue.pop();
 
-            if (index == dst) return cost;
-            // Higher cost doesn't mean impossible.
-            if (stepCount > k /*|| cost > minCost[index]*/)
+            if (stops > min_steps[index] || stops > k + 1)
                 continue;
+            min_steps[index] = stops;
 
-            for (auto const &neighbor : graph[index])
+            if (index == dst)
+                return cost;
+
+            for (const auto &[neighbor, price] : graph[index])
             {
-                int currentCost = neighbor.first + cost;
-                int nextSteps = stepCount + 1;
-                if (currentCost < minCost[neighbor.second] || nextSteps < minSteps[neighbor.second])
-                {
-                    minCost[neighbor.second] = currentCost;
-                    minSteps[neighbor.second] = nextSteps;
-                    priQueue.push({{currentCost, neighbor.second}, nextSteps});
-                }
+                if (stops + 1 <= k + 1)
+                    priQueue.push({cost + price, neighbor, stops + 1});
             }
         }
-        if (minCost[dst] == 0x3f3f3f3f)
-            return -1;
-        return minCost[dst];
+        return -1;
     }
 };
 // @lc code=end
