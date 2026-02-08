@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=704 lang=cpp
+ * @lc app=leetcode.cn id=35 lang=cpp
  *
- * [704] 二分查找
+ * [35] 搜索插入位置
  */
 
 // @lc code=start
@@ -11,14 +11,14 @@ using namespace std;
 class Solution
 {
 private:
-    int search(vector<int> &nums, int target, int begin, int end)
+    int search(const vector<int> &nums, int target, int begin, int end)
     {
         if (end - begin <= 1)
         {
-            if (nums[begin] == target)
+            if (nums[begin] >= target)
                 return begin;
             else
-                return -1;
+                return end;
         }
 
         int mid = begin + (end - begin) / 2;
@@ -30,7 +30,7 @@ private:
     }
 
 public:
-    int search(vector<int> &nums, int target)
+    int searchInsert(vector<int> &nums, int target)
     {
         return search(nums, target, 0, nums.size());
     }
