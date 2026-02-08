@@ -1,5 +1,7 @@
 # 题目与知识点汇总
 
+总计：75 题
+
 ## algorithms
 
 - 回溯算法
@@ -10,6 +12,10 @@
   - 46. leetcode-backtracking-permutations
   - 78. leetcode-backtracking-subsets
   - 90. leetcode-backtracking-subsets_ii
+- 二分查找
+  - 34. leetcode-binary_search-first_and_last_position
+  - 35. leetcode-binary_search-search_insert_position
+  - 704. leetcode-binary_search-template
 - 图论
   - 787. leetcode-graph-cheapest_flights_within_k_stops
   - 1971. leetcode-graph-dfs_paths
@@ -41,6 +47,11 @@
   - luogu-monotonic_stack-next_bigger
 - 队列
   - 933. leetcode-queue-recent_calls
+- 排序
+  - 215. leetcode-sorting-kth_largest_element
+  - 912. leetcode-sorting-sort_an_array
+  - none-sorting-merge_sort
+  - none-sorting-quick_sort
 - 栈
   - 394. leetcode-stack-decode_string
   - 150. leetcode-stack-eval_rpn
@@ -69,6 +80,8 @@
   - 206. leetcode-simply_linked_list
   - luogu-queue-linked_list
   - luogu-stack-linked_list
+- 哈希表
+  - 706. leetcode-hash_table-chaining
 - 队列
   - 622. leetcode-queue-circular_array
   - 641. leetcode-queue-circular_doubly_linked_list
@@ -92,12 +105,15 @@
 # 涵盖知识点
 
 - 回溯算法（组合、排列、子集、N皇后、分割回文）
+- 二分查找（基础模板、边界查找、插入位置）
 - 图论（最短路径、DFS、Dijkstra、Floyd、拓扑排序、连通性、中心节点、判官问题等）
 - 链表（单链表、双链表、环检测、交点、回文、旋转、删除节点等）
 - 单调栈与单调队列（滑动窗口、下一个更大元素、温度、雨水收集等）
+- 排序（快速排序、归并排序、第K大元素等）
 - 队列（循环队列、队列实现栈、最近请求等）
 - 栈（括号匹配、逆波兰表达式、最小栈、去重、字符串解码等）
 - 树（遍历、最大深度、最大路径和、合并、序列化/反序列化、验证BST、最近公共祖先等）
+- 哈希表（拉链法实现）
 - 并查集（岛屿数量、可达性、数组实现）
 - 基础数据结构实现（链表、栈、队列、树、图）
 
