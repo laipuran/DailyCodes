@@ -1,6 +1,6 @@
 # 题目与知识点汇总
 
-总计：75 题
+总计：80 题
 
 ## algorithms
 
@@ -9,9 +9,11 @@
   - 77. leetcode-backtracking-combinations
   - 51. leetcode-backtracking-n_queens
   - 131. leetcode-backtracking-partition_palindrome
+  - 113. leetcode-backtracking-path_sum_ii
   - 46. leetcode-backtracking-permutations
   - 78. leetcode-backtracking-subsets
   - 90. leetcode-backtracking-subsets_ii
+  - 79. leetcode-backtracking-word_search
 - 二分查找
   - 34. leetcode-binary_search-first_and_last_position
   - 35. leetcode-binary_search-search_insert_position
@@ -26,6 +28,7 @@
   - 1334. leetcode-graph-floyd
   - 2421. leetcode-graph-floyd_transitive_closure
   - 1584. leetcode-graph-min_cost_points
+  - 547. leetcode-graph-number_of_provinces
   - 1631. leetcode-graph-path_with_minimum_effort
   - 684. leetcode-graph-redundant_connection
   - 207. leetcode-graph-topological_sort
@@ -33,6 +36,7 @@
 - 链表
   - 876. leetcode-linked_list-central_node
   - 142. leetcode-linked_list-circle_entry
+  - 138. leetcode-linked_list-copy_random_pointer
   - 19. leetcode-linked_list-delete_last_n
   - 141. leetcode-linked_list-has_circle
   - 160. leetcode-linked_list-intersection
@@ -41,6 +45,7 @@
   - 61. leetcode-linked_list-rotate
 - 单调栈/队列
   - 739. leetcode-monotonic_stack-daily_temperatures
+  - 84. leetcode-monotonic_stack-largest_rectangle
   - 42. leetcode-monotonic_stack-rainwater
   - luogu-monotonic_queue-sliding_window
   - luogu-monotonic_stack-near_bigger_number
