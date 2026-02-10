@@ -1,6 +1,6 @@
 # 题目与知识点汇总
 
-总计：80 题
+总计：87 题
 
 ## algorithms
 
@@ -18,6 +18,14 @@
   - 34. leetcode-binary_search-first_and_last_position
   - 35. leetcode-binary_search-search_insert_position
   - 704. leetcode-binary_search-template
+- 动态规划
+  - 70. leetcode-dp-climbing_stairs
+  - 322. leetcode-dp-coin_change
+  - 746. leetcode-dp-min_cost_climbing_stairs
+  - 64. leetcode-dp-minimum_path_sum
+  - 416. leetcode-dp-partition_equal_subset_sum
+  - 198. leetcode-dp-robber
+  - 62. leetcode-dp-unique_paths
 - 图论
   - 787. leetcode-graph-cheapest_flights_within_k_stops
   - 1971. leetcode-graph-dfs_paths
@@ -111,6 +119,7 @@
 
 - 回溯算法（组合、排列、子集、N皇后、分割回文）
 - 二分查找（基础模板、边界查找、插入位置）
+- 动态规划（爬楼梯、打家劫舍、路径问题、背包问题等）
 - 图论（最短路径、DFS、Dijkstra、Floyd、拓扑排序、连通性、中心节点、判官问题等）
 - 链表（单链表、双链表、环检测、交点、回文、旋转、删除节点等）
 - 单调栈与单调队列（滑动窗口、下一个更大元素、温度、雨水收集等）
