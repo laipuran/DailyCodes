@@ -7,29 +7,21 @@
 // @lc code=start
 class Solution
 {
-private:
-    int *steps;
-
 public:
-    ~Solution()
-    {
-        delete[] steps;
-    }
-
     int climbStairs(int n)
     {
         if (n <= 1)
             return 1;
-
-        steps = new int[n + 1];
-        steps[0] = steps[1] = 1;
+        int prev2 = 1, prev1 = 1;
 
         for (int i = 2; i <= n; i++)
         {
-            steps[i] = steps[i - 1] + steps[i - 2];
+            int current=prev1+prev2;
+            prev2=prev1;
+            prev1=current;
         }
 
-        return steps[n];
+        return prev1;
     }
 };
 // @lc code=end

@@ -11,30 +11,23 @@ using namespace std;
 
 class Solution
 {
-private:
-    int *minCost;
-
 public:
-    ~Solution()
-    {
-        delete[] minCost;
-    }
-
     int minCostClimbingStairs(vector<int> &cost)
     {
         int n = cost.size();
         if (n <= 1)
             return 0;
 
-        minCost = new int[n + 1];
-        minCost[0] = minCost[1] = 0;
+        int prev2 = 0, prev1 = 0;
 
         for (int i = 2; i < n + 1; i++)
         {
-            minCost[i] = min(minCost[i - 1] + cost[i - 1], minCost[i - 2] + cost[i - 2]);
+            int current = min(prev1 + cost[i - 1], prev2 + cost[i - 2]);
+            prev2 = prev1;
+            prev1 = current;
         }
 
-        return minCost[n];
+        return prev1;
     }
 };
 // @lc code=end

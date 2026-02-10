@@ -11,31 +11,29 @@ using namespace std;
 
 class Solution
 {
-private:
-    int *robbed;
-
 public:
     int rob(vector<int> &nums)
     {
         int n = nums.size();
+        if (n == 0) return 0;
+        if (n == 1) return nums[0];
 
-        if (n == 1)
-            return nums[0];
-        if (n == 2)
-            return max(nums[0], nums[1]);
-        if (n == 3)
-            return max(nums[0] + nums[2], nums[1]);
+        // dp[i] means the max money can be robbed from house 0 to i
+        // For each house, you have two choices:
+        // 1. Rob it: You can't rob the previous house (i-1), so add dp[i-2] + nums[i]
+        // 2. Don't rob it: Take the max from previous house (dp[i-1])
+        // dp[i] = max(dp[i-1], dp[i-2] + nums[i])
 
-        robbed = new int[n];
-        robbed[0] = nums[0];
-        robbed[1] = nums[1];
-        robbed[2] = nums[0] + nums[2];
+        int prev2 = nums[0]; // dp[i-2]
+        int prev1 = max(nums[0], nums[1]); // dp[i-1]
 
-        for (int i = 3; i < n; i++)
+        for (int i = 2; i < n; ++i)
         {
-            robbed[i] = max(robbed[i - 2], robbed[i - 3]) + nums[i];
+            int curr = max(prev1, prev2 + nums[i]);
+            prev2 = prev1;
+            prev1 = curr;
         }
-        return max(robbed[n - 1], robbed[n - 2]);
+        return prev1;
     }
 };
 // @lc code=end
