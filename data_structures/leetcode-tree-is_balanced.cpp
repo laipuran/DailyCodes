@@ -21,12 +21,17 @@ struct TreeNode
 class Solution
 {
 private:
-    int getLayers(TreeNode *node)
+    int balanceLayers(TreeNode *node)
     {
         if (node == nullptr)
             return 0;
 
-        return 1 + std::max(getLayers(node->left), getLayers(node->right));
+        int left = balanceLayers(node->left);
+        int right = balanceLayers(node->right);
+        if (left == -1 || right == -1 || abs(left - right) > 1)
+            return -1;
+
+        return std::max(left, right) + 1;
     }
 
 public:
@@ -35,10 +40,8 @@ public:
         if (root == nullptr)
             return true;
 
-        if (abs(getLayers(root->left) - getLayers(root->right)) > 1)
-            return false;
-
-        return isBalanced(root->left) && isBalanced(root->right);
+        int result = balanceLayers(root);
+        return result != -1;
     }
 };
 // @lc code=end
